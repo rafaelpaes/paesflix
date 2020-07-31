@@ -8,6 +8,11 @@
         "text": "Formação de Front End na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "id": 2,
+      "titulo": "Back End",
+      "cor": "#6BD1FF"
     }
   ],
   "videos": [
@@ -18,34 +23,28 @@
       "url": "https://www.youtube.com/watch?v=c8mVlakBESE"
     },
     {
-      "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "titulo": "Vídeo padrão",
-      "url": "https://www.youtube.com/watch?time_continue=3129&v=hhQ3RtvmfEg&feature=emb_logo",
-      "categoriaId": 1,
-      "id": 8
-    },
-    {
       "titulo": "Hamburguer",
       "url": "https://www.youtube.com/watch?v=P8FTouM8A5I",
       "categoriaId": 1,
-      "id": 9
+      "id": 2
+    },
+    {
+      "titulo": "Edge",
+      "url": "https://www.youtube.com/watch?v=uWJnbNHPyzo",
+      "categoriaId": 1,
+      "id": 3
+    },
+    {
+      "titulo": "Vídeo padrão",
+      "url": "https://www.youtube.com/watch?v=9NZrdgazaps",
+      "categoriaId": 1,
+      "id": 4
+    },
+    {
+      "titulo": "Vídeo padrão",
+      "url": "https://www.youtube.com/watch?v=9NZrdgazaps",
+      "categoriaId": 2,
+      "id": 5
     }
   ]
 }
