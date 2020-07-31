@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -11,50 +13,16 @@ function CadastroCategoria() {
     cor: '',
   };
 
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
-
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor,
-    });
-  }
-
-  function handleChange(e) {
-    setValue(
-      e.target.getAttribute('name'),
-      e.target.value,
-    );
-  }
 
   useEffect(() => {
-    const URL_TOP = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'https://paesflix.herokuapp.com/categorias';
-    fetch(URL_TOP).then(async (respostaDoServidor) => {
-      const resposta = await respostaDoServidor.json();
+    categoriasRepository.getAllWithVideos().then((categoriasComVideos) => {
       setCategorias([
-        ...resposta,
+        ...categoriasComVideos,
       ]);
     });
-    // setTimeout(() => {
-    //   setCategorias([
-    //     ...categorias,
-    //     {
-    //       id: 1,
-    //       nome: 'Front End',
-    //       descricao: 'Uma categoria show',
-    //       cor: '#6BD1FF',
-    //     },
-    //     {
-    //       id: 2,
-    //       nome: 'Back End',
-    //       descricao: 'Uma categoria mais show aind',
-    //       cor: '#6BD1FF',
-    //     },
-    //   ]);
-    // }, 4 * 1000);
   }, []);
 
   return (
@@ -71,7 +39,7 @@ function CadastroCategoria() {
           values,
         ]);
 
-        setValues(valoresIniciais);
+        clearForm(valoresIniciais);
       }}
       >
         <FormField
